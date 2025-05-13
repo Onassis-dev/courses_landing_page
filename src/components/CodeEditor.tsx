@@ -18,7 +18,7 @@ function useTypingAnimation(text: string) {
       }
 
       const elapsed = timestamp - startTimeRef.current;
-      const frameDuration = 1; // approximately 60fps
+      const frameDuration = 10; // approximately 60fps
 
       if (elapsed >= frameDuration) {
         if (currentIndexRef.current < text.length) {

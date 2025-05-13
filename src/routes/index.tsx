@@ -1,5 +1,3 @@
-import { File, Folder, Tree } from "@/components/magicui/file-tree";
-import { Terminal, TypingAnimation } from "@/components/magicui/terminal";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { Particles } from "@/components/magicui/particles";
@@ -43,7 +41,11 @@ const iconBase = "h-5 w-5 mt-1";
 const iconEmerald = `${iconBase} text-emerald-400`;
 const available = [3, 5]; // Update this array with the number of available places for each schedule
 
-export default function App() {
+export default function App({
+  getContactLink,
+}: {
+  getContactLink: (text?: string) => string;
+}) {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
@@ -69,9 +71,11 @@ export default function App() {
           inView
           className="flex flex-col sm:flex-row gap-4 mb-12"
         >
-          <ShimmerButton>
-            <AuroraText>Reserva tu lugar</AuroraText>
-          </ShimmerButton>
+          <a href={getContactLink()} target="_blank">
+            <ShimmerButton>
+              <AuroraText>Reserva tu lugar</AuroraText>
+            </ShimmerButton>
+          </a>
         </BlurFade>
 
         <BlurFade
@@ -273,11 +277,18 @@ export default function App() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button
-                      className={`w-full bg-gradient-to-r ${schedule.gradient} hover:${schedule.hoverGradient}`}
+                    <a
+                      href={getContactLink(
+                        `Hola, quiero inscribirme en el horario de ${schedule.days}.`
+                      )}
+                      target="_blank"
                     >
-                      Seleccionar este horario
-                    </Button>
+                      <Button
+                        className={`w-full bg-gradient-to-r ${schedule.gradient} hover:${schedule.hoverGradient}`}
+                      >
+                        Seleccionar este horario
+                      </Button>
+                    </a>
                   </CardFooter>
                 </Card>
               ))}
@@ -426,7 +437,7 @@ export default function App() {
                   </a>
                 </Button>
                 <Button variant="outline" className="gap-2" asChild>
-                  <a href="https://wa.me/526642956883" target="_blank">
+                  <a href={getContactLink()} target="_blank">
                     <MessageSquare className="h-4 w-4" />
                     Contacto
                   </a>
@@ -529,9 +540,11 @@ export default function App() {
           </BlurFade>
           <BlurFade delay={0.3} inView>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ShimmerButton>
-                <AuroraText>Reserva tu lugar</AuroraText>
-              </ShimmerButton>
+              <a href={getContactLink()} target="_blank">
+                <ShimmerButton>
+                  <AuroraText>Reserva tu lugar</AuroraText>
+                </ShimmerButton>
+              </a>
             </div>
           </BlurFade>
         </div>
