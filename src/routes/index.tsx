@@ -33,7 +33,7 @@ export function App() {
       </div>
       <Particles
         className="fixed inset-0 z-0"
-        quantity={100}
+        quantity={60}
         ease={50}
         color="#ffffff"
         refresh
