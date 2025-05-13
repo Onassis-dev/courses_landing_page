@@ -38,7 +38,6 @@ import { CodeEditor } from "@/components/CodeEditor";
 
 const textMuted = "text-[#b2b2b2]";
 const iconBase = "h-5 w-5 mt-1";
-const iconEmerald = `${iconBase} text-emerald-400`;
 const available = [3, 5]; // Update this array with the number of available places for each schedule
 
 export default function App({
@@ -183,8 +182,11 @@ export default function App({
                         "Clases prácticas con ejercicios y proyectos reales",
                     },
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <item.icon className={iconEmerald} />
+                    <div
+                      key={index}
+                      className="grid grid-cols-[auto_1fr] sm:gap-3 gap-2"
+                    >
+                      <item.icon className="size-5 mt-1 text-emerald-400" />
                       <div>
                         <span className="font-medium">{item.title}</span>
                         <p className={textMuted}>{item.content}</p>
