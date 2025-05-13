@@ -37,7 +37,6 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { CodeEditor } from "@/components/CodeEditor";
 
 const textMuted = "text-[#b2b2b2]";
-const iconBase = "h-5 w-5 mt-1";
 const available = [3, 5]; // Update this array with the number of available places for each schedule
 
 export default function App({
