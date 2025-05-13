@@ -1,3 +1,4 @@
+import { File, Folder, Tree } from "@/components/magicui/file-tree";
 import { Terminal, TypingAnimation } from "@/components/magicui/terminal";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -35,6 +36,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { CodeEditor } from "@/components/CodeEditor";
 
 const textMuted = "text-[#b2b2b2]";
 const iconBase = "h-5 w-5 mt-1";
@@ -77,19 +79,7 @@ export default function App() {
           inView
           className="w-full flex justify-center px-4"
         >
-          <Terminal className="w-full max-h-96 max-w-5xl">
-            <TypingAnimation text="Hola, soy Onassis" />
-            <TypingAnimation text="Programador con experiencia en desarrollo web" />
-            <TypingAnimation text="Te enseñaré a programar desde cero" />
-            <TypingAnimation
-              text="HTML, CSS, JavaScript y más..."
-              className="text-emerald-400"
-            />
-            <TypingAnimation
-              text="¡En grupos de solo 6 estudiantes!"
-              className="text-yellow-400 font-bold"
-            />
-          </Terminal>
+          <CodeEditor />
         </BlurFade>
       </section>
 

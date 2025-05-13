@@ -1,0 +1,45 @@
+.code-editor {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+}
+
+.code-editor .token.tag {
+  color: #ff7b72;
+}
+
+.code-editor .token.attr-name {
+  color: #d2a8ff;
+}
+
+.code-editor .token.attr-value {
+  color: #a5d6ff;
+}
+
+.code-editor .token.punctuation {
+  color: #8b949e;
+}
+
+.code-editor .token.doctype {
+  color: #8b949e;
+}
+
+.code-editor .typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #8b949e;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
