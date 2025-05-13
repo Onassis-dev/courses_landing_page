@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header className="h-14 bg-background/80 text-foreground backdrop-blur-sm fixed top-0 inset-x-0 z-50 border-b">
-      <nav className="max-w-5xl mx-auto flex justify-between items-center text-sm h-full">
+      <nav className="max-w-5xl px-4 mx-auto flex sm:justify-between justify-center items-center text-sm h-full">
         <div className="flex flex-row gap-4">
           <a href="/">Inicio</a>
           <a href="/">Temas</a>
@@ -9,7 +9,9 @@ export default function Header() {
           <a href="/">Horarios</a>
         </div>
 
-        <a href="https://wa.me/526642956883">Inscribirse</a>
+        <a className="hidden sm:block" href="https://wa.me/526642956883">
+          Inscribirse
+        </a>
       </nav>
     </header>
   );

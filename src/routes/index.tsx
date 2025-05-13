@@ -10,8 +10,10 @@ import {
   Clock,
   Code,
   Gamepad2,
+  Github,
   Globe,
   Laptop,
+  MapPin,
   MessageSquare,
   Users,
 } from "lucide-react";
@@ -34,21 +36,29 @@ import { Badge } from "@/components/ui/badge";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { BorderBeam } from "@/components/magicui/border-beam";
 
+const textMuted = "text-[#b2b2b2]";
+const iconBase = "h-5 w-5 mt-1";
+const iconEmerald = `${iconBase} text-emerald-400`;
+const available = [3, 5]; // Update this array with the number of available places for each schedule
+
 export default function App() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <section className="relative z-10 flex flex-col items-center justify-center w-full pt-20 pb-16">
         <BlurFade delay={0.25} inView>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-center max-w-5xl font-semibold py-6">
-            <AuroraText>Aprende a Programar en grupos reducidos</AuroraText>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl text-center max-w-6xl font-semibold py-6">
+            <AuroraText>Domina la Programación Web desde Cero</AuroraText>
           </h1>
         </BlurFade>
 
         <BlurFade delay={0.35} inView>
-          <p className="text-center text-lg md:text-xl text-[#b2b2b2] max-w-3xl mb-8 px-4">
-            Domina las bases de la programación y desarrolla proyectos prácticos
-            en un ambiente personalizado con solo 5 estudiantes por grupo
+          <p
+            className={`text-center text-lg md:text-xl ${textMuted} max-w-5xl mb-8 px-4`}
+          >
+            Aprende a crear sitios web y aplicaciones desde cero. Clases
+            personalizadas con solo 5 estudiantes por grupo para maximizar tu
+            aprendizaje
           </p>
         </BlurFade>
 
@@ -62,8 +72,12 @@ export default function App() {
           </ShimmerButton>
         </BlurFade>
 
-        <BlurFade delay={0.55} inView className="w-full flex justify-center">
-          <Terminal className="w-full max-h-96">
+        <BlurFade
+          delay={0.55}
+          inView
+          className="w-full flex justify-center px-4"
+        >
+          <Terminal className="w-full max-h-96 max-w-5xl">
             <TypingAnimation text="Hola, soy Onassis" />
             <TypingAnimation text="Programador con experiencia en desarrollo web" />
             <TypingAnimation text="Te enseñaré a programar desde cero" />
@@ -86,67 +100,51 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               <AuroraText>¿Qué aprenderás?</AuroraText>
             </h2>
-            <p className="text-center text-[#b2b2b2] max-w-2xl mx-auto mb-12">
+            <p className={`text-center ${textMuted} max-w-2xl mx-auto mb-12`}>
               Un curso práctico donde aprenderás las bases de la programación
               mientras desarrollas proyectos reales
             </p>
           </BlurFade>
 
           <BlurFade delay={0.3} inView>
-            <div className="grid grid-cols-2 grid-rows-4 gap-8 max-w-5xl mx-auto grid-flow-col">
-              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">1</span>
-                  </div>
-                  Fundamentos de Programación
-                </h3>
-                <p className="text-[#b2b2b2]">
-                  Aprenderás los conceptos básicos de la lógica de programación,
-                  variables, condicionales y bucles.
-                </p>
-              </div>
+            <div className="grid sm:grid-cols-2 sm:grid-rows-4 gap-8 max-w-5xl mx-auto sm:grid-flow-col">
+              {[
+                {
+                  title: "Fundamentos de Programación",
+                  description:
+                    "Aprenderás los conceptos básicos de la lógica de programación, variables, condicionales y bucles.",
+                },
+                {
+                  title: "HTML y CSS",
+                  description:
+                    "Dominarás la estructura de páginas web y aprenderás a darles estilo para crear interfaces atractivas.",
+                },
+                {
+                  title: "JavaScript",
+                  description:
+                    "Aprenderás a crear interactividad, manejar eventos, trabajar con APIs y desarrollar aplicaciones web dinámicas.",
+                },
+                {
+                  title: "Proyectos Prácticos",
+                  description:
+                    "Desarrollarás proyectos reales como páginas web interactivas, aplicaciones y juegos sencillos.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="relative bg-background p-5 rounded-xl border"
+                >
+                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold">{i + 1}</span>
+                    </div>
+                    {item.title}
+                  </h3>
+                  <p className={textMuted}>{item.description}</p>
+                </div>
+              ))}
 
-              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">2</span>
-                  </div>
-                  HTML y CSS
-                </h3>
-                <p className="text-[#b2b2b2]">
-                  Dominarás la estructura de páginas web y aprenderás a darles
-                  estilo para crear interfaces atractivas.
-                </p>
-              </div>
-
-              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">3</span>
-                  </div>
-                  JavaScript
-                </h3>
-                <p className="text-[#b2b2b2]">
-                  Aprenderás el lenguaje de programación más utilizado en la web
-                  para crear interactividad en tus proyectos.
-                </p>
-              </div>
-
-              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">4</span>
-                  </div>
-                  Proyectos Prácticos
-                </h3>
-                <p className="text-[#b2b2b2]">
-                  Desarrollarás proyectos reales como páginas web interactivas,
-                  aplicaciones y juegos sencillos.
-                </p>
-              </div>
-
-              <div className="relative bg-background p-6 rounded-xl border border-gray-800 row-span-4">
+              <div className="relative bg-background p-6 rounded-xl border sm:row-span-4">
                 <ShineBorder
                   shineColor={["#FFBE7B", "#FFBE7B"]}
                   duration={40}
@@ -156,57 +154,49 @@ export default function App() {
                   Detalles del Curso
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-5 w-5 text-emerald-400 mt-1" />
-                    <div>
-                      <span className="font-medium">Duración:</span>
-                      <p className="text-[#b2b2b2]">3 meses (24 sesiones)</p>
+                  {[
+                    {
+                      icon: Calendar,
+                      title: "Duración:",
+                      content: "3 meses (24 sesiones)",
+                    },
+                    {
+                      icon: Clock,
+                      title: "Horarios:",
+                      content: "Lunes y Miércoles o Martes y Jueves",
+                    },
+                    {
+                      icon: MapPin,
+                      title: "Lugar:",
+                      content:
+                        "Clases en linea por zoom, tomalas desde cualquier lugar",
+                    },
+                    {
+                      icon: Users,
+                      title: "Tamaño del grupo:",
+                      content:
+                        "Máximo 5 estudiantes para garantizar atención personalizada",
+                    },
+                    {
+                      icon: Laptop,
+                      title: "Requisitos:",
+                      content: "Computadora con conexión a internet",
+                    },
+                    {
+                      icon: Code,
+                      title: "Metodología:",
+                      content:
+                        "Clases prácticas con ejercicios y proyectos reales",
+                    },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <item.icon className={iconEmerald} />
+                      <div>
+                        <span className="font-medium">{item.title}</span>
+                        <p className={textMuted}>{item.content}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-emerald-400 mt-1" />
-                    <div>
-                      <span className="font-medium">Horarios:</span>
-                      <p className="text-[#b2b2b2]">
-                        Lunes y Miércoles o Martes y Jueves
-                      </p>
-                      <p className="text-[#b2b2b2]">6:00 PM - 7:30 PM</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Users className="h-5 w-5 text-emerald-400 mt-1" />
-                    <div>
-                      <span className="font-medium">Tamaño del grupo:</span>
-                      <p className="text-[#b2b2b2]">
-                        Máximo 5 estudiantes para garantizar atención
-                        personalizada
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Laptop className="h-5 w-5 text-emerald-400 mt-1" />
-                    <div>
-                      <span className="font-medium">Requisitos:</span>
-                      <p className="text-[#b2b2b2]">
-                        Computadora con conexión a internet
-                      </p>
-                      <p className="text-[#b2b2b2]">
-                        No se requiere experiencia previa en programación
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Code className="h-5 w-5 text-emerald-400 mt-1" />
-                    <div>
-                      <span className="font-medium">Metodología:</span>
-                      <p className="text-[#b2b2b2]">
-                        Clases prácticas con ejercicios y proyectos reales
-                      </p>
-                      <p className="text-[#b2b2b2]">
-                        Soporte personalizado durante y después de las clases
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -221,87 +211,86 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               <AuroraText>Horarios Disponibles</AuroraText>
             </h2>
-            <p className="text-center text-[#b2b2b2] max-w-2xl mx-auto mb-8">
+            <p className={`text-center ${textMuted} max-w-2xl mx-auto mb-8`}>
               Elige el horario que mejor se adapte a tu agenda. Todas las clases
               tienen una duración de 1:30 horas.
             </p>
           </BlurFade>
 
           <BlurFade delay={0.3} inView>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card className="relative bg-background text-foreground transition-colors border-emerald-500/30">
-                <ShineBorder shineColor={["#009686", "#009686"]} />
-
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  days: "Lunes y Miércoles",
+                  color: "emerald",
+                  icon: Calendar,
+                  badge: "Disponible",
+                  gradient: "from-emerald-500 to-teal-500",
+                  hoverGradient: "from-emerald-600 to-teal-600",
+                },
+                {
+                  days: "Martes y Jueves",
+                  color: "purple",
+                  icon: Calendar,
+                  badge: "Disponible",
+                  gradient: "from-purple-500 to-violet-500",
+                  hoverGradient: "from-purple-600 to-violet-600",
+                },
+              ].map((schedule, i) => (
+                <Card
+                  key={schedule.days}
+                  className={`relative bg-background text-foreground border-${schedule.color}-500/30`}
+                >
+                  <ShineBorder
+                    shineColor={[
+                      `#${schedule.color === "emerald" ? "009686" : "9450FF"}`,
+                      `#${schedule.color === "emerald" ? "009686" : "9450FF"}`,
+                    ]}
+                  />
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
                       <CardTitle className="flex items-center gap-2">
-                        <Calendar className="h-5 w-5 text-emerald-400" />
-                        Lunes y Miércoles
+                        <schedule.icon
+                          className={`h-5 w-5 text-${schedule.color}-400`}
+                        />
+                        {schedule.days}
                       </CardTitle>
+                      <Badge className={`bg-${schedule.color}-500`}>
+                        {schedule.badge}
+                      </Badge>
                     </div>
-                    <Badge className="bg-emerald-500">Disponible</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Clock className="h-5 w-5 text-emerald-400" />
-                      <span>6:00 PM - 7:30 PM</span>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <Clock
+                          className={`h-5 w-5 text-${schedule.color}-400`}
+                        />
+                        <span>6:00 PM - 7:30 PM</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Users
+                          className={`h-5 w-5 text-${schedule.color}-400`}
+                        />
+                        <span>Grupo reducido (máximo 5 estudiantes)</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Check
+                          className={`h-5 w-5 text-${schedule.color}-400`}
+                        />
+                        <span>{available[i]} lugares disponibles</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Users className="h-5 w-5 text-emerald-400" />
-                      <span>Grupo reducido (máximo 5 estudiantes)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-emerald-400" />
-                      <span>4 lugares disponibles</span>
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600">
-                    Seleccionar este horario
-                  </Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="relative bg-background text-foreground border-purple-500/30">
-                <ShineBorder shineColor={["#9450FF", "#9450FF"]} />
-
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="flex items-center gap-2">
-                        <Calendar className="h-5 w-5 text-purple-400" />
-                        Martes y Jueves
-                      </CardTitle>
-                    </div>
-                    <Badge className="bg-purple-500">Disponible</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Clock className="h-5 w-5 text-purple-400" />
-                      <span>6:00 PM - 7:30 PM</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Users className="h-5 w-5 text-purple-400" />
-                      <span>Grupo reducido (máximo 5 estudiantes)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-purple-400" />
-                      <span>4 lugares disponibles</span>
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-purple-500 to-violet-500 hover:from-purple-600 hover:to-violet-600">
-                    Seleccionar este horario
-                  </Button>
-                </CardFooter>
-              </Card>
+                  </CardContent>
+                  <CardFooter>
+                    <Button
+                      className={`w-full bg-gradient-to-r ${schedule.gradient} hover:${schedule.hoverGradient}`}
+                    >
+                      Seleccionar este horario
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
             </div>
           </BlurFade>
         </div>
@@ -314,99 +303,94 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               <AuroraText>Proyectos que desarrollarás</AuroraText>
             </h2>
-            <p className="text-center text-[#b2b2b2] max-w-2xl mx-auto mb-12">
+            <p className={`text-center ${textMuted} max-w-2xl mx-auto mb-12`}>
               Aprende haciendo. Estos son algunos de los proyectos prácticos que
               construirás durante el curso.
             </p>
           </BlurFade>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <BlurFade delay={0.3} inView>
-              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
-                <BorderBeam
-                  duration={18}
-                  size={200}
-                  delay={2}
-                  colorFrom="#009686"
-                  colorTo="#009686"
-                />
-
-                <div className="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
-                  <AppWindow className="h-16 w-16 text-emerald-400" />
-                </div>
-                <CardHeader>
-                  <CardTitle>Página Web Personal</CardTitle>
-                  <CardDescription>
-                    Crea tu propio sitio web con HTML y CSS para mostrar tu
-                    información y proyectos.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">HTML</Badge>
-                    <Badge variant="outline">CSS</Badge>
-                    <Badge variant="outline">Responsive</Badge>
+            {[
+              {
+                icon: AppWindow,
+                title: "Página Web Personal",
+                description:
+                  "Crea tu propio sitio web con HTML y CSS para mostrar tu información y proyectos.",
+                badges: ["HTML", "CSS", "Responsive"],
+                color: "emerald",
+                delay: 0.3,
+              },
+              {
+                icon: Code,
+                title: "Aplicación funcional",
+                description:
+                  "Desarrolla una aplicación que resuelva un problema real.",
+                badges: ["JavaScript", "LocalStorage", "DOM"],
+                color: "purple",
+                delay: 0.4,
+              },
+              {
+                icon: Gamepad2,
+                title: "Juego Interactivo",
+                description:
+                  "Crea un juego sencillo como un quiz o un juego de memoria utilizando JavaScript.",
+                badges: ["JavaScript", "Eventos", "Animaciones"],
+                color: "amber",
+                delay: 0.5,
+              },
+            ].map((project) => (
+              <BlurFade key={project.title} delay={project.delay} inView>
+                <Card className="bg-background text-foreground overflow-hidden relative">
+                  <BorderBeam
+                    duration={18}
+                    size={200}
+                    delay={project.delay * 2}
+                    colorFrom={`#${
+                      project.color === "emerald"
+                        ? "009686"
+                        : project.color === "purple"
+                        ? "9450FF"
+                        : "FFBE7B"
+                    }`}
+                    colorTo={`#${
+                      project.color === "emerald"
+                        ? "009686"
+                        : project.color === "purple"
+                        ? "9450FF"
+                        : "FFBE7B"
+                    }`}
+                  />
+                  <div
+                    className={`h-48 bg-gradient-to-br from-${
+                      project.color
+                    }-500/20 to-${
+                      project.color === "emerald"
+                        ? "teal"
+                        : project.color === "purple"
+                        ? "violet"
+                        : "orange"
+                    }-500/20 flex items-center justify-center`}
+                  >
+                    <project.icon
+                      className={`h-16 w-16 text-${project.color}-400`}
+                    />
                   </div>
-                </CardContent>
-              </Card>
-            </BlurFade>
-
-            <BlurFade delay={0.4} inView>
-              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
-                <BorderBeam
-                  duration={18}
-                  delay={4}
-                  size={200}
-                  colorFrom="#9450FF"
-                  colorTo="#9450FF"
-                />
-                <div className="h-48 bg-gradient-to-br from-purple-500/20 to-violet-500/20 flex items-center justify-center">
-                  <Code className="h-16 w-16 text-purple-400" />
-                </div>
-                <CardHeader>
-                  <CardTitle>Aplicación funcional</CardTitle>
-                  <CardDescription>
-                    Desarrolla una aplicación que resuelva un problema real.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">JavaScript</Badge>
-                    <Badge variant="outline">LocalStorage</Badge>
-                    <Badge variant="outline">DOM</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </BlurFade>
-
-            <BlurFade delay={0.5} inView>
-              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
-                <BorderBeam
-                  duration={18}
-                  size={200}
-                  delay={6}
-                  colorFrom="#FFBE7B"
-                  colorTo="#FFBE7B"
-                />
-                <div className="h-48 bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
-                  <Gamepad2 className="h-16 w-16 text-amber-400" />
-                </div>
-                <CardHeader>
-                  <CardTitle>Juego Interactivo</CardTitle>
-                  <CardDescription>
-                    Crea un juego sencillo como un quiz o un juego de memoria
-                    utilizando JavaScript.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">JavaScript</Badge>
-                    <Badge variant="outline">Eventos</Badge>
-                    <Badge variant="outline">Animaciones</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </BlurFade>
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {project.badges.map((badge) => (
+                        <Badge key={badge} variant="outline">
+                          {badge}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </BlurFade>
+            ))}
           </div>
         </div>
       </section>
@@ -434,21 +418,13 @@ export default function App() {
                 <AuroraText>Conoce a tu instructor</AuroraText>
               </h2>
               <h3 className="text-2xl font-semibold mb-2">Onassis Salinas</h3>
-              <p className="text-[#b2b2b2] mb-6">
-                Soy un programador enfocado en el desarrollo web. Inicie mi
-                carrera programando videojuegos y desarrolle diversos proyectos,
-                entre ellos{" "}
-                <a
-                  href="https://iglesiasbc.com"
-                  target="_blank"
-                  className="underline"
-                >
-                  IglesiasBC
-                </a>
-                , un SaaS. Asi como un sistema ERP personalizado para una
-                empresa de manufactura en la cual trabajo actualmente
+              <p className={`${textMuted} mb-6`}>
+                Soy un desarrollador full-stack con experiencia en React,
+                Node.js y bases de datos. He desarrollado aplicaciones web
+                complejas como IglesiasBC, un SaaS para gestión de iglesias, y
+                sistemas ERP personalizados para empresas de manufactura.
               </p>
-              <p className="text-[#b2b2b2] mb-6">
+              <p className={`${textMuted} mb-6`}>
                 Todo lo que eh aprendido lo eh obtenido de forma autodidacta y
                 mediante la practica, y quiero compartir este metodo contigo
               </p>
@@ -478,73 +454,71 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               <AuroraText>Preguntas Frecuentes</AuroraText>
             </h2>
-            <p className="text-center text-[#b2b2b2] max-w-2xl mx-auto mb-12">
+            <p className={`text-center ${textMuted} max-w-2xl mx-auto mb-12`}>
               Resuelve tus dudas antes de inscribirte al curso.
             </p>
           </BlurFade>
 
           <BlurFade delay={0.3} inView>
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>
-                    ¿Necesito tener conocimientos previos de programación?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    No, el curso está diseñado para principiantes absolutos.
-                    Comenzaremos desde lo más básico y avanzaremos gradualmente.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>
-                    ¿Qué necesito para tomar el curso?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Solo necesitas una computadora con conexión a internet y
-                    ganas de aprender. Utilizaremos herramientas gratuitas que
-                    te guiaré a instalar durante las primeras clases.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>¿Cómo son las clases?</AccordionTrigger>
-                  <AccordionContent>
-                    Las clases son prácticas y dinámicas. Cada sesión incluye
-                    una explicación teórica seguida de ejercicios prácticos que
-                    realizaremos juntos. Al ser grupos pequeños, puedo atender
-                    las dudas de cada estudiante.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>
-                    ¿Qué pasa si no puedo asistir a una clase?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Todas las clases quedan grabadas y disponibles para que
-                    puedas verlas en cualquier momento. Además, puedo programar
-                    una breve sesión de dudas para ponerte al día.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-5">
-                  <AccordionTrigger>
-                    ¿Cuál es el costo del curso?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    El curso tiene un costo de $X. Puedes pagar en una sola
-                    exhibición o en dos pagos. Contáctame para conocer las
-                    opciones de pago disponibles.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-6">
-                  <AccordionTrigger>
-                    ¿Recibiré algún certificado al finalizar?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Sí, al completar el curso recibirás un certificado de
-                    finalización. Sin embargo, lo más valioso serán los
-                    proyectos que habrás desarrollado y que podrás mostrar en tu
-                    portafolio.
-                  </AccordionContent>
-                </AccordionItem>
+            <div className="max-w-5xl mx-auto">
+              <Accordion
+                type="single"
+                collapsible
+                className="w-full gap-2 grid md:grid-cols-2 items-start"
+              >
+                {[
+                  {
+                    question:
+                      "¿Necesito tener conocimientos previos de programación?",
+                    answer:
+                      "No, el curso está diseñado para principiantes absolutos. Comenzaremos desde lo más básico y avanzaremos gradualmente.",
+                  },
+                  {
+                    question: "¿Qué necesito para tomar el curso?",
+                    answer:
+                      "Solo necesitas una computadora con conexión a internet y ganas de aprender. Utilizaremos herramientas gratuitas que te guiaré a instalar durante las primeras clases.",
+                  },
+                  {
+                    question: "¿Cómo son las clases?",
+                    answer:
+                      "Las clases son prácticas y dinámicas. Cada sesión incluye una explicación teórica seguida de ejercicios prácticos que realizaremos juntos. Al ser grupos pequeños, puedo atender las dudas de cada estudiante.",
+                  },
+                  {
+                    question: "¿Qué pasa si no puedo asistir a una clase?",
+                    answer:
+                      "Todas las clases quedan grabadas y disponibles para que puedas verlas en cualquier momento. Además, puedo programar una breve sesión de dudas para ponerte al día.",
+                  },
+                  {
+                    question: "¿Cuál es el costo del curso?",
+                    answer:
+                      "El curso tiene un costo de $2000mxn/mes. O puedes pagar una sola vez $5000mxn",
+                  },
+                  {
+                    question: "¿Recibiré algún certificado al finalizar?",
+                    answer:
+                      "Sí, al completar el curso recibirás un certificado de finalización. Sin embargo, lo más valioso serán los proyectos que habrás desarrollado y que podrás mostrar en tu portafolio.",
+                  },
+                  {
+                    question: "¿Qué tecnologías específicas aprenderé?",
+                    answer:
+                      "Aprenderás HTML5, CSS3, JavaScript moderno (ES6+), y conceptos fundamentales de desarrollo web como responsive design, APIs y manejo de datos.",
+                  },
+                  {
+                    question:
+                      "¿Hay algún tipo de soporte o ayuda entre clases?",
+                    answer:
+                      "Sí, tendrás acceso a un grupo de WhatsApp exclusivo para estudiantes donde podrás hacer preguntas, compartir avances y recibir retroalimentación. Además, podrás agendar sesiones de dudas individuales si lo necesitas.",
+                  },
+                ].map((faq, index) => (
+                  <AccordionItem
+                    className="border rounded-md py-2 px-4 bg-background"
+                    key={index}
+                    value={`i-${index}`}
+                  >
+                    <AccordionTrigger>{faq.question}</AccordionTrigger>
+                    <AccordionContent>{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
               </Accordion>
             </div>
           </BlurFade>
@@ -552,15 +526,15 @@ export default function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 py-20 bg-gradient-to-r from-emerald-900/30 to-teal-900/30 backdrop-blur-sm">
+      <section className="relative z-10 py-20 backdrop-blur-sm">
         <div className="container mx-auto px-4 text-center">
           <BlurFade delay={0.2} inView>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <AuroraText>¡Comienza tu viaje en la programación!</AuroraText>
+              <AuroraText>¡Convierte tu curiosidad en código!</AuroraText>
             </h2>
-            <p className="text-xl text-[#b2b2b2] max-w-2xl mx-auto mb-8">
-              Los grupos son limitados a solo 5 estudiantes. Reserva tu lugar
-              ahora y da el primer paso hacia el mundo de la programación.
+            <p className={`text-xl ${textMuted} max-w-2xl mx-auto mb-8`}>
+              Únete a nuestro próximo grupo de 5 estudiantes. Aprende a
+              programar con proyectos reales y mentoria personalizada.
             </p>
           </BlurFade>
           <BlurFade delay={0.3} inView>
@@ -574,9 +548,15 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background py-4">
-        <p className="text-center text-sm">
-          Onassis Salinas @ {new Date().getFullYear()}
+      <footer className="bg-background py-4 border-t">
+        <p className="text-sm max-w-5xl mx-auto px-4 flex justify-between">
+          <span>Onassis Salinas @ {new Date().getFullYear()}</span>
+          <a
+            href="https://github.com/Onassis-dev/courses_landing_page"
+            target="_blank"
+          >
+            <Github className="size-4" />
+          </a>
         </p>
       </footer>
 
