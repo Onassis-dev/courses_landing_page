@@ -31,13 +31,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { createFileRoute } from "@tanstack/react-router";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { BorderBeam } from "@/components/magicui/border-beam";
-
-export const Route = createFileRoute("/")({
-  component: App,
-});
 
 export default function App() {
   return (

@@ -1,5 +1,3 @@
-import { Button } from "./ui/button";
-
 export default function Header() {
   return (
     <header className="h-14 bg-background/80 text-foreground backdrop-blur-sm fixed top-0 inset-x-0 z-50 border-b">
@@ -11,7 +9,7 @@ export default function Header() {
           <a href="/">Horarios</a>
         </div>
 
-        <a href="https://wa.me/573178235050">Inscribirse</a>
+        <a href="https://wa.me/526642956883">Inscribirse</a>
       </nav>
     </header>
   );
