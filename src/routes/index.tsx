@@ -4,10 +4,12 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { Particles } from "@/components/magicui/particles";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import {
+  AppWindow,
   Calendar,
   Check,
   Clock,
   Code,
+  Gamepad2,
   Globe,
   Laptop,
   MessageSquare,
@@ -30,6 +32,8 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { createFileRoute } from "@tanstack/react-router";
+import { ShineBorder } from "@/components/magicui/shine-border";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -49,7 +53,7 @@ export default function App() {
         <BlurFade delay={0.35} inView>
           <p className="text-center text-lg md:text-xl text-[#b2b2b2] max-w-3xl mb-8 px-4">
             Domina las bases de la programación y desarrolla proyectos prácticos
-            en un ambiente personalizado con solo 6 estudiantes por grupo
+            en un ambiente personalizado con solo 5 estudiantes por grupo
           </p>
         </BlurFade>
 
@@ -58,12 +62,12 @@ export default function App() {
           inView
           className="flex flex-col sm:flex-row gap-4 mb-12"
         >
-          <ShimmerButton className="px-8 py-3 text-lg">
+          <ShimmerButton>
             <AuroraText>Reserva tu lugar</AuroraText>
           </ShimmerButton>
         </BlurFade>
 
-        <BlurFade delay={0.55} inView className="w-full max-w-4xl px-4">
+        <BlurFade delay={0.55} inView className="w-full flex justify-center">
           <Terminal className="w-full max-h-96">
             <TypingAnimation text="Hola, soy Onassis" />
             <TypingAnimation text="Programador con experiencia en desarrollo web" />
@@ -93,65 +97,66 @@ export default function App() {
             </p>
           </BlurFade>
 
-          <div className="grid md:grid-cols-2 grow gap-12 items-center max-w-5xl mx-auto">
-            <BlurFade delay={0.3} inView>
-              <div className="space-y-6">
-                <div className="bg-black/40 p-5 rounded-xl border border-gray-800">
-                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">1</span>
-                    </div>
-                    Fundamentos de Programación
-                  </h3>
-                  <p className="text-[#b2b2b2]">
-                    Aprenderás los conceptos básicos de la lógica de
-                    programación, variables, condicionales y bucles.
-                  </p>
-                </div>
-
-                <div className="bg-black/40 p-5 rounded-xl border border-gray-800">
-                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">2</span>
-                    </div>
-                    HTML y CSS
-                  </h3>
-                  <p className="text-[#b2b2b2]">
-                    Dominarás la estructura de páginas web y aprenderás a darles
-                    estilo para crear interfaces atractivas.
-                  </p>
-                </div>
-
-                <div className="bg-black/40 p-5 rounded-xl border border-gray-800">
-                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">3</span>
-                    </div>
-                    JavaScript
-                  </h3>
-                  <p className="text-[#b2b2b2]">
-                    Aprenderás el lenguaje de programación más utilizado en la
-                    web para crear interactividad en tus proyectos.
-                  </p>
-                </div>
-
-                <div className="bg-black/40 p-5 rounded-xl border border-gray-800">
-                  <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">4</span>
-                    </div>
-                    Proyectos Prácticos
-                  </h3>
-                  <p className="text-[#b2b2b2]">
-                    Desarrollarás proyectos reales como páginas web
-                    interactivas, aplicaciones y juegos sencillos.
-                  </p>
-                </div>
+          <BlurFade delay={0.3} inView>
+            <div className="grid grid-cols-2 grid-rows-4 gap-8 max-w-5xl mx-auto grid-flow-col">
+              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">1</span>
+                  </div>
+                  Fundamentos de Programación
+                </h3>
+                <p className="text-[#b2b2b2]">
+                  Aprenderás los conceptos básicos de la lógica de programación,
+                  variables, condicionales y bucles.
+                </p>
               </div>
-            </BlurFade>
 
-            <BlurFade delay={0.4} inView>
-              <div className="bg-black/40 p-6 rounded-xl border border-gray-800">
+              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">2</span>
+                  </div>
+                  HTML y CSS
+                </h3>
+                <p className="text-[#b2b2b2]">
+                  Dominarás la estructura de páginas web y aprenderás a darles
+                  estilo para crear interfaces atractivas.
+                </p>
+              </div>
+
+              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">3</span>
+                  </div>
+                  JavaScript
+                </h3>
+                <p className="text-[#b2b2b2]">
+                  Aprenderás el lenguaje de programación más utilizado en la web
+                  para crear interactividad en tus proyectos.
+                </p>
+              </div>
+
+              <div className="relative bg-background p-5 rounded-xl border border-gray-800">
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">4</span>
+                  </div>
+                  Proyectos Prácticos
+                </h3>
+                <p className="text-[#b2b2b2]">
+                  Desarrollarás proyectos reales como páginas web interactivas,
+                  aplicaciones y juegos sencillos.
+                </p>
+              </div>
+
+              <div className="relative bg-background p-6 rounded-xl border border-gray-800 row-span-4">
+                <ShineBorder
+                  shineColor={["#FFBE7B", "#FFBE7B"]}
+                  duration={40}
+                />
+
                 <h3 className="text-2xl font-semibold mb-4">
                   Detalles del Curso
                 </h3>
@@ -209,13 +214,13 @@ export default function App() {
                   </div>
                 </div>
               </div>
-            </BlurFade>
-          </div>
+            </div>
+          </BlurFade>
         </div>
       </section>
 
       {/* Horarios Section */}
-      <section className="relative z-10 py-16 bg-black/30 backdrop-blur-sm">
+      <section className="relative z-10 py-16">
         <div className="container mx-auto px-4">
           <BlurFade delay={0.2} inView>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -229,7 +234,9 @@ export default function App() {
 
           <BlurFade delay={0.3} inView>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card className="bg-background text-foreground border-emerald-500/30 hover:border-emerald-500 transition-colors">
+              <Card className="relative bg-background text-foreground transition-colors border-emerald-500/30">
+                <ShineBorder shineColor={["#009686", "#009686"]} />
+
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
@@ -237,9 +244,6 @@ export default function App() {
                         <Calendar className="h-5 w-5 text-emerald-400" />
                         Lunes y Miércoles
                       </CardTitle>
-                      <CardDescription className="mt-2">
-                        Ideal para quienes prefieren iniciar la semana
-                      </CardDescription>
                     </div>
                     <Badge className="bg-emerald-500">Disponible</Badge>
                   </div>
@@ -267,7 +271,9 @@ export default function App() {
                 </CardFooter>
               </Card>
 
-              <Card className="bg-background text-foreground border-purple-500/30 hover:border-purple-500 transition-colors">
+              <Card className="relative bg-background text-foreground border-purple-500/30">
+                <ShineBorder shineColor={["#9450FF", "#9450FF"]} />
+
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
@@ -275,9 +281,6 @@ export default function App() {
                         <Calendar className="h-5 w-5 text-purple-400" />
                         Martes y Jueves
                       </CardTitle>
-                      <CardDescription className="mt-2">
-                        Perfecto para distribuir tu aprendizaje
-                      </CardDescription>
                     </div>
                     <Badge className="bg-purple-500">Disponible</Badge>
                   </div>
@@ -294,7 +297,7 @@ export default function App() {
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-purple-400" />
-                      <span>5 lugares disponibles</span>
+                      <span>4 lugares disponibles</span>
                     </div>
                   </div>
                 </CardContent>
@@ -310,7 +313,7 @@ export default function App() {
       </section>
 
       {/* Proyectos Section */}
-      <section className="relative z-10 py-20 bg-black/30 backdrop-blur-sm">
+      <section className="relative z-10 py-20">
         <div className="container mx-auto px-4">
           <BlurFade delay={0.2} inView>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -324,9 +327,17 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <BlurFade delay={0.3} inView>
-              <Card className="bg-black/40 border-gray-800 overflow-hidden">
+              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
+                <BorderBeam
+                  duration={18}
+                  size={200}
+                  delay={2}
+                  colorFrom="#009686"
+                  colorTo="#009686"
+                />
+
                 <div className="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
-                  <Code className="h-16 w-16 text-emerald-400" />
+                  <AppWindow className="h-16 w-16 text-emerald-400" />
                 </div>
                 <CardHeader>
                   <CardTitle>Página Web Personal</CardTitle>
@@ -337,52 +348,53 @@ export default function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="bg-black/60">
-                      HTML
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      CSS
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      Responsive
-                    </Badge>
+                    <Badge variant="outline">HTML</Badge>
+                    <Badge variant="outline">CSS</Badge>
+                    <Badge variant="outline">Responsive</Badge>
                   </div>
                 </CardContent>
               </Card>
             </BlurFade>
 
             <BlurFade delay={0.4} inView>
-              <Card className="bg-black/40 border-gray-800 overflow-hidden">
+              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
+                <BorderBeam
+                  duration={18}
+                  delay={4}
+                  size={200}
+                  colorFrom="#9450FF"
+                  colorTo="#9450FF"
+                />
                 <div className="h-48 bg-gradient-to-br from-purple-500/20 to-violet-500/20 flex items-center justify-center">
-                  <Laptop className="h-16 w-16 text-purple-400" />
+                  <Code className="h-16 w-16 text-purple-400" />
                 </div>
                 <CardHeader>
-                  <CardTitle>Aplicación de Tareas</CardTitle>
+                  <CardTitle>Aplicación funcional</CardTitle>
                   <CardDescription>
-                    Desarrolla una aplicación para gestionar tareas con
-                    JavaScript y almacenamiento local.
+                    Desarrolla una aplicación que resuelva un problema real.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="bg-black/60">
-                      JavaScript
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      LocalStorage
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      DOM
-                    </Badge>
+                    <Badge variant="outline">JavaScript</Badge>
+                    <Badge variant="outline">LocalStorage</Badge>
+                    <Badge variant="outline">DOM</Badge>
                   </div>
                 </CardContent>
               </Card>
             </BlurFade>
 
             <BlurFade delay={0.5} inView>
-              <Card className="bg-black/40 border-gray-800 overflow-hidden">
+              <Card className="bg-background text-foreground border-gray-800 overflow-hidden relative">
+                <BorderBeam
+                  duration={18}
+                  size={200}
+                  delay={6}
+                  colorFrom="#FFBE7B"
+                  colorTo="#FFBE7B"
+                />
                 <div className="h-48 bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
-                  <Globe className="h-16 w-16 text-amber-400" />
+                  <Gamepad2 className="h-16 w-16 text-amber-400" />
                 </div>
                 <CardHeader>
                   <CardTitle>Juego Interactivo</CardTitle>
@@ -393,15 +405,9 @@ export default function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="bg-black/60">
-                      JavaScript
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      Eventos
-                    </Badge>
-                    <Badge variant="outline" className="bg-black/60">
-                      Animaciones
-                    </Badge>
+                    <Badge variant="outline">JavaScript</Badge>
+                    <Badge variant="outline">Eventos</Badge>
+                    <Badge variant="outline">Animaciones</Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -455,7 +461,7 @@ export default function App() {
                 <Button variant="outline" className="gap-2" asChild>
                   <a href="https://onassis.dev/es" target="_blank">
                     <Globe className="h-4 w-4" />
-                    Portfolio
+                    Portafolio
                   </a>
                 </Button>
                 <Button variant="outline" className="gap-2" asChild>
@@ -564,7 +570,7 @@ export default function App() {
           </BlurFade>
           <BlurFade delay={0.3} inView>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ShimmerButton className="px-8 py-4 text-lg">
+              <ShimmerButton>
                 <AuroraText>Reserva tu lugar</AuroraText>
               </ShimmerButton>
             </div>
