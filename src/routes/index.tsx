@@ -86,7 +86,7 @@ export default function App({
       </section>
 
       {/* Acerca del Curso Section */}
-      <section className="relative z-10 py-20">
+      <section className="relative z-10 py-20" id="temas">
         <div className="container mx-auto px-4">
           <BlurFade delay={0.2} inView>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -200,7 +200,7 @@ export default function App({
       </section>
 
       {/* Horarios Section */}
-      <section className="relative z-10 py-16">
+      <section className="relative z-10 py-16" id="horarios">
         <div className="container mx-auto px-4">
           <BlurFade delay={0.2} inView>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -398,7 +398,7 @@ export default function App({
       </section>
 
       {/* Instructor Section */}
-      <section className="relative z-10 py-20">
+      <section className="relative z-10 py-20" id="sobre-mi">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
             <BlurFade delay={0.2} inView className="md:w-2/5">
@@ -488,7 +488,7 @@ export default function App({
                   {
                     question: "¿Qué pasa si no puedo asistir a una clase?",
                     answer:
-                      "Todas las clases quedan grabadas y disponibles para que puedas verlas en cualquier momento. Además, puedo programar una breve sesión de dudas para ponerte al día.",
+                      "Todas las clases quedan grabadas y disponibles para que puedas verlas en cualquier momento.",
                   },
                   {
                     question: "¿Cuál es el costo del curso?",
@@ -509,7 +509,7 @@ export default function App({
                     question:
                       "¿Hay algún tipo de soporte o ayuda entre clases?",
                     answer:
-                      "Sí, tendrás acceso a un grupo de WhatsApp exclusivo para estudiantes donde podrás hacer preguntas, compartir avances y recibir retroalimentación. Además, podrás agendar sesiones de dudas individuales si lo necesitas.",
+                      "Sí, tendrás acceso a un grupo de WhatsApp exclusivo para estudiantes donde podrás hacer preguntas, compartir avances y recibir retroalimentación.",
                   },
                 ].map((faq, index) => (
                   <AccordionItem

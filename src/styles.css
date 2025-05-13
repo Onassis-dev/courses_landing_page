@@ -2,6 +2,10 @@
 @plugin "tailwindcss-animate";
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply m-0;
 
