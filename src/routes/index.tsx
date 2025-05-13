@@ -541,7 +541,7 @@ export default function App({
           <BlurFade delay={0.3} inView>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={getContactLink()} target="_blank">
-                <ShimmerButton>
+                <ShimmerButton className="w-full">
                   <AuroraText>Reserva tu lugar</AuroraText>
                 </ShimmerButton>
               </a>
