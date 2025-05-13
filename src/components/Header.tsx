@@ -9,12 +9,12 @@ export default function Header({
         <div className="flex flex-row gap-4">
           <a href="#">Inicio</a>
           <a href="#temas">Temas</a>
-          <a href="#sobre-mi">Sobre mi</a>
           <a href="#horarios">Horarios</a>
+          <a href="#sobre-mi">Sobre mi</a>
         </div>
 
         <a className="hidden sm:block" href={getContactLink()}>
-          Inscribirse
+          Inscribirme
         </a>
       </nav>
     </header>
