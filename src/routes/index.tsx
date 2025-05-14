@@ -35,6 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { CodeEditor } from "@/components/CodeEditor";
+import { cn } from "@/lib/utils";
 
 const textMuted = "text-[#b2b2b2]";
 const available = [3, 5]; // Update this array with the number of available places for each schedule
@@ -234,7 +235,11 @@ export default function App({
               ].map((schedule, i) => (
                 <Card
                   key={schedule.days}
-                  className={`relative bg-background text-foreground border-${schedule.color}-500/30`}
+                  className={cn(
+                    "relative bg-background text-foreground border-",
+                    schedule.color === "emerald" && "border-emerald-500/30",
+                    schedule.color === "purple" && "border-purple-500/30"
+                  )}
                 >
                   <ShineBorder
                     shineColor={[
@@ -246,11 +251,21 @@ export default function App({
                     <div className="flex justify-between items-start">
                       <CardTitle className="flex items-center gap-2">
                         <schedule.icon
-                          className={`h-5 w-5 text-${schedule.color}-400`}
+                          className={cn(
+                            `h-5 w-5 text-`,
+                            schedule.color === "emerald" && "text-emerald-400",
+                            schedule.color === "purple" && "text-purple-400"
+                          )}
                         />
                         {schedule.days}
                       </CardTitle>
-                      <Badge className={`bg-${schedule.color}-500`}>
+                      <Badge
+                        className={cn(
+                          `bg-`,
+                          schedule.color === "emerald" && "bg-emerald-500",
+                          schedule.color === "purple" && "bg-purple-500"
+                        )}
+                      >
                         {schedule.badge}
                       </Badge>
                     </div>
@@ -259,19 +274,31 @@ export default function App({
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <Clock
-                          className={`h-5 w-5 text-${schedule.color}-400`}
+                          className={cn(
+                            `h-5 w-5 text-`,
+                            schedule.color === "emerald" && "text-emerald-400",
+                            schedule.color === "purple" && "text-purple-400"
+                          )}
                         />
                         <span>6:00 PM - 7:30 PM</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Users
-                          className={`h-5 w-5 text-${schedule.color}-400`}
+                          className={cn(
+                            `h-5 w-5 text-`,
+                            schedule.color === "emerald" && "text-emerald-400",
+                            schedule.color === "purple" && "text-purple-400"
+                          )}
                         />
                         <span>Grupo reducido (máximo 5 estudiantes)</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Check
-                          className={`h-5 w-5 text-${schedule.color}-400`}
+                          className={cn(
+                            `h-5 w-5 text-`,
+                            schedule.color === "emerald" && "text-emerald-400",
+                            schedule.color === "purple" && "text-purple-400"
+                          )}
                         />
                         <span>{available[i]} lugares disponibles</span>
                       </div>
@@ -374,7 +401,12 @@ export default function App({
                     }-500/20 flex items-center justify-center`}
                   >
                     <project.icon
-                      className={`h-16 w-16 text-${project.color}-400`}
+                      className={cn(
+                        `h-16 w-16 text-${project.color}-400`,
+                        project.color === "emerald" && "text-emerald-400",
+                        project.color === "purple" && "text-purple-400",
+                        project.color === "amber" && "text-amber-400"
+                      )}
                     />
                   </div>
                   <CardHeader>
