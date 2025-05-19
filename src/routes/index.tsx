@@ -437,9 +437,9 @@ export default function App({
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-emerald-500 mx-auto">
                   <img
-                    src="/placeholder.svg?height=320&width=320"
+                    src="/photo.jpeg"
                     alt="Onassis"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover filter brightness-90 contrast-115"
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full p-4">
@@ -451,12 +451,22 @@ export default function App({
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 <AuroraText>Conoce a tu instructor</AuroraText>
               </h2>
-              <h3 className="text-2xl font-semibold mb-2">Onassis Salinas</h3>
+              <h3 className="text-2xl font-semibold mb-2 text-muted-foreground">
+                Onassis Salinas
+              </h3>
               <p className={`${textMuted} mb-6`}>
                 Soy un desarrollador full-stack con experiencia en React,
-                Node.js y bases de datos. He desarrollado aplicaciones web
-                complejas como IglesiasBC, un SaaS para gestión de iglesias, y
-                sistemas ERP personalizados para empresas de manufactura.
+                Node.js, bases de datos y mas. He desarrollado aplicaciones web
+                complejas como{" "}
+                <a
+                  href="https://iglesiasbc.com"
+                  target="_blank"
+                  className="underline"
+                >
+                  IglesiasBC
+                </a>
+                , un SaaS para gestión de iglesias, y un sistema ERP
+                personalizado para una empresa de manufactura.
               </p>
               <p className={`${textMuted} mb-6`}>
                 Todo lo que eh aprendido lo eh obtenido de forma autodidacta y
